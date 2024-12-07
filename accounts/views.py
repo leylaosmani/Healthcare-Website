@@ -14,7 +14,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home') 
+            return redirect('accounts/availability.html') 
         else:
             messages.error(request, 'Invalid username or password')
     return render(request, 'accounts/login.html')
@@ -27,8 +27,9 @@ def book_appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-          print("Form data:", form.cleaned_data)
-          return render(request, 'accounts/success.html')
+           form_data = form.cleaned_data
+           print("Form data:", form_data)
+           return render(request, 'accounts/success.html', {'form_data': form_data})
     else:
         form = AppointmentForm()
     

@@ -2,12 +2,33 @@ from django import forms
 from .models import Availability
 
 class AppointmentForm(forms.Form):
-    name = forms.CharField(max_length=100, label="Full Name")
-    email = forms.EmailField(label="Email Address")
-    phone = forms.CharField(max_length=15, label="Phone Number")
-    appointment_date = forms.DateField(widget=forms.SelectDateWidget(), label="Appointment Date")
-    appointment_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M'), label="Appointment Time")
-    notes = forms.CharField(widget=forms.Textarea, required=False, label="Additional Notes")
+    name = forms.CharField(
+        max_length=100,
+        label="Full Name",
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'})
+    )
+    email = forms.EmailField(
+        label="Email Address",
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email address'})
+    )
+    phone = forms.CharField(
+        max_length=15,
+        label="Phone Number",
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your phone number'})
+    )
+    appointment_date = forms.DateField(
+        label="Appointment Date",
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'})
+    )
+    appointment_time = forms.TimeField(
+        label="Appointment Time",
+        widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'})
+    )
+    notes = forms.CharField(
+        label="Reason for Appointment:",
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Any additional information'})
+    )
 
 class AvailabilityForm(forms.ModelForm):
     class Meta:

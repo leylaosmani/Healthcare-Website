@@ -1,9 +1,97 @@
 </html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Booked</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        .highlight {
+            background-color: #e8f5fe;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        button {
+            background-color: #51abd4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #a7cdef;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h2>Your appointment has been booked!</h2>
-    <p>Thank you for scheduling an appointment with us.</p>
+    <div class="container">
+        <h2>Your Appointment is Confirmed!</h2>
+        <p>Thank you for scheduling an appointment with us. Here are the details of your booking:</p>
+        <div class="highlight">
+            <p><strong>Name:</strong> {{ form_data.name }}</p>
+            <p><strong>Email:</strong> {{ form_data.email }}</p>
+            <p><strong>Phone:</strong> {{ form_data.phone }}</p>
+            <p><strong>Appointment Date:</strong> {{ form_data.appointment_date }}</p>
+            <p><strong>Appointment Time:</strong> {{ form_data.appointment_time }}</p>
+            <p><strong>Reason for Appointment:</strong> {{ form_data.notes }}</p>
+        </div>
+        <button onclick="window.location.href='/';">Back to Home</button>
+        <a href="{% url 'book_appointment' %}" class="back-link">Book another appointment</a>
+
+    </div>
 </body>
 </html>
