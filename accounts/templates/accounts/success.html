@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+            background-color: aliceblue;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,7 +50,7 @@
         }
 
         button {
-            background-color: #51abd4;
+            background-color: #233a44;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -89,7 +89,8 @@
             <p><strong>Appointment Time:</strong> {{ form_data.appointment_time }}</p>
             <p><strong>Reason for Appointment:</strong> {{ form_data.notes }}</p>
         </div>
-        <button onclick="window.location.href='/';">Back to Home</button>
+        <a href="{% url 'home' %}" style="display: inline-block; padding: 12px 20px; background-color: #233a44; color: white; text-decoration: none; border-radius: 8px; text-align: center;">Back to Home</a>
+
         <a href="{% url 'book_appointment' %}" class="back-link">Book another appointment</a>
 
     </div>

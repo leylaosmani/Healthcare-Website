@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: aliceblue;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #233a44;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f4f4f9;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        main {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .cta-buttons a {
+            display: inline-block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: white;
+            background-color: #233a44;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .cta-buttons a:hover {
+            background-color: #a7cdef;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'book_appointment' %}">Book Appointment</a></li>
+                <li><a href="{% url 'set_availability' %}">Set Availability</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the Home Page!</h1>
+        <p>Book appointments or manage your availability with ease.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'book_appointment' %}">Book an Appointment</a>
+            <a href="{% url 'set_availability' %}">Set Availability</a>
+        </div>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability Success</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .success-container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #233a44;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .details p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            background-color: #233a44;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #a7cdef;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <h1>Success!</h1>
+        <p>Your availability has been successfully set.</p>
+        <div class="details">
+            <p><strong>Day:</strong> {{ form_data.day }}</p>
+            <p><strong>Start Time:</strong> {{ form_data.start_time }}</p>
+            <p><strong>End Time:</strong> {{ form_data.end_time }}</p>
+        </div>
+        <br>
+        <a href="{% url 'home' %}">Go back to Home</a>
+    </div>
+</body>
+</html>

@@ -14,7 +14,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('accounts/availability.html') 
+            return redirect('home') 
         else:
             messages.error(request, 'Invalid username or password')
     return render(request, 'accounts/login.html')
@@ -41,10 +41,20 @@ def set_availability(request):
         form = AvailabilityForm(request.POST)
         if form.is_valid():
             availability = form.save(commit=False)
-            availability.doctor = request.user  # Associate availability with the logged-in doctor
+            availability.doctor = request.user  
             availability.save()
-            return redirect('availability_success')  
+            
+          
+            form_data = {
+                'day': form.cleaned_data.get('day'),
+                'start_time': form.cleaned_data.get('start_time'),
+                'end_time': form.cleaned_data.get('end_time'),
+            }
+            return render(request, 'accounts/availability_success.html', {'form_data': form_data})
     else:
         form = AvailabilityForm()
     
     return render(request, 'accounts/availability.html', {'form': form})
+
+def home(request):
+    return render(request, 'accounts/home.html')
